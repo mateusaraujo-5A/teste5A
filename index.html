@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ajuste de credencial inválida Iconatus</title>
+
+    <style>
+
+        :root {
+            --primary-color: #0078d4;
+            --secondary-color: #f3f2f1;
+            --text-color: #323130;
+            --bg-color: #ffffff;
+            --border-color: #edebe9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tab-content {
+            padding: 30px;
+        }
+
+        .info-box {
+            background: #f5f5f5;
+            border-left: 5px solid #d0d0d0;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .warning-box {
+            background: #e8f4fd;
+            border-left: 5px solid #0078d4;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .crm-selector-container {
+            margin: 25px 0;
+            padding: 15px;
+            background: #f3f2f1;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .crm-selector-container label {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .crm-select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .crm-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+        }
+
+        .btn-link {
+            color: #0078d4;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        .contact-footer {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f3f2f1;
+        }
+
+        .dynamic-content-area {
+            margin: 20px 0;
+            border: 1px solid #edebe9;
+            border-radius: 6px;
+            padding: 20px;
+            background: #fafafa;
+        }
+
+        .dropdown-container-inner {
+            border-left: 4px solid #d0d0d0;
+            padding-left: 20px;
+        }
+
+        .dropdown-container-inner img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        h2.center {
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <h1>Ajuste de credencial inválida Iconatus</h1>
+</header>
+
+<div id="tab1" class="tab-content">
+
+    <h2 class="center">CRMs Homologados pela iConatus</h2>
+
+    <div class="info-box" style="text-align: center;">
+        A credencial é a "chave de acesso" (como senhas ou tokens) que permite a conexão segura entre o CRM da imobiliária e o Marketplace. Ela garante que o integrador consiga coletar e transferir os dados de imóveis e contatos de forma autenticada.
+    </div>
+
+    <div class="crm-selector-container">
+
+        <label for="crmSelect">Selecione o CRM da sua Imobiliária:</label>
+
+        <select id="crmSelect" class="crm-select" onchange="showCrmInstructions()">
+
+            <option value="" selected disabled>-- Escolha um CRM na lista --</option>
+
+            <option value="xml-content">Midas</option>
+            <option value="xml-content">Code49</option>
+            <option value="xml-content">Inforce</option>
+
+            <option value="nido-content">Nido</option>
+
+            <option value="api-content">Apresenta.me</option>
+
+            <option value="xml-content">Tecimob</option>
+
+            <option value="api-content">Vista</option>
+
+            <option value="arbo-content">Arbo</option>
+
+            <option value="xml-content">Ingaia</option>
+
+            <option value="api-content">imobzi (Quikfast)</option>
+
+            <option value="xml-content">Voa Corretor</option>
+
+            <option value="api-usuario-content">Imoview</option>
+
+            <option value="xml-content">ImobiBrasil</option>
+
+            <option value="api-content">Jetmobi</option>
+
+            <option value="api-content">Sobressai</option>
+
+            <option value="xml-content">Sinai</option>
+
+            <option value="xml-content">MLS Brazil</option>
+
+        </select>
+
+    </div>
+
+    <div id="instructionArea" class="dynamic-content-area" style="display: none;">
+
+        <!-- XML -->
+
+        <div id="xml-content" class="crm-instruction-block" style="display:none;">
+
+            <div class="dropdown-container-inner">
+
+                <h2>Integração via XML</h2>
+
+                <br>
+
+                <p>
+                    Integração via XML realizar o preenchimento através desse link do parceiro integrador:
+                </p>
+
+                <br>
+
+                <p>
+
+                    <a class="btn-link" target="_blank" href="http://adm.iconatus.com.br:7070/account/login">
+
+                        http://adm.iconatus.com.br:7070/account/login
+
+                    </a>
+
+                </p>
+
+                <br>
+
+                <div class="info-box">
+
+                    Na primeira etapa, insira o usuário e a senha fornecidos pela Iconatus no início da integração.
+                    Caso não os possua, acione o suporte 5A.
+
+                </div>
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779106700/tela-login-iconatus_xauulg.png">
+
+                <p>
+                    A próxima etapa consiste em preencher os dados de acesso ao CRM.
+                </p>
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779106774/Captura_de_tela_2026-05-18_091842_iwwevy.png">
+
+                <div class="info-box">
+
+                    Ao finalizar o cadastro, a mensagem "Concluído com sucesso" será exibida.
+                    No entanto, ela confirma apenas o registro, sendo necessária a validação da Iconatus para garantir o ajuste das credenciais.
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- API -->
+
+        <div id="api-content" class="crm-instruction-block" style="display:none;">
+
+            <div class="dropdown-container-inner">
+
+                <h2>Integração via API</h2>
+
+                <br>
+
+                <div class="warning-box">
+
+                    <strong>Importante:</strong>
+
+                    <br><br>
+
+                    Integração via API o ajuste precisa ser realizado através de abertura de chamado com o CRM da imobiliária.
+
+                </div>
+
+                <div class="info-box">
+
+                    <p><strong>Modelo de chamado para o CRM:</strong></p>
+
+                    <br>
+
+                    <p>
+
+                        “Utilizamos hoje junto à Iconatus as credenciais abaixo para compartilhar dados de proprietário e imóvel.
+                        No entanto, a chave API está inválida, impedindo o retorno dos dados.
+                        Por favor, poderiam corrigir a chave atual ou fornecer uma nova?”
+
+                    </p>
+
+                    <br>
+
+                    <p>
+
+                        <strong>Importante:</strong>
+
+                        Enviar o link da chave API compartilhada com a Iconatus no início da integração.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ARBO -->
+
+        <div id="arbo-content" class="crm-instruction-block" style="display:none;">
+
+            <div class="dropdown-container-inner">
+
+                <h2>Integração via API</h2>
+
+                <br>
+
+                <div class="warning-box">
+
+                    <strong>Importante:</strong>
+
+                    <br><br>
+
+                    Integração via API o ajuste precisa ser realizado através de abertura de chamado com o CRM da imobiliária.
+
+                </div>
+
+                <div class="info-box">
+
+                    <p><strong>Modelo de chamado para o CRM:</strong></p>
+
+                    <br>
+
+                    <p>
+
+                        “Utilizamos hoje junto à Iconatus as credenciais abaixo para compartilhar dados de proprietário e imóvel.
+                        No entanto, a chave API está inválida, impedindo o retorno dos dados.
+                        Por favor, poderiam corrigir a chave atual ou fornecer uma nova?”
+
+                    </p>
+
+                    <br>
+
+                    <p>
+
+                        <strong>Importante:</strong>
+
+                        Enviar o link da chave API compartilhada com a Iconatus no início da integração.
+
+                    </p>
+
+                    <br>
+
+                    <p>
+
+                        <strong>Observação para Arbo:</strong>
+
+                        Ao abrir o chamado, informe o token que está sendo utilizado.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- API + USUÁRIO -->
+
+        <div id="api-usuario-content" class="crm-instruction-block" style="display:none;">
+
+            <div class="dropdown-container-inner">
+
+                <h2>Integração via API + USUÁRIO CRM</h2>
+
+                <br>
+
+                <div class="warning-box">
+
+                    <strong>Importante:</strong>
+
+                    <br><br>
+
+                    Integração via API o ajuste precisa ser realizado através de abertura de chamado com o CRM da imobiliária.
+
+                </div>
+
+                <div class="info-box">
+
+                    <p><strong>Modelo de chamado para o CRM:</strong></p>
+
+                    <br>
+
+                    <p>
+
+                        “Utilizamos hoje junto à Iconatus as credenciais abaixo para compartilhar dados de proprietário e imóvel.
+                        No entanto, a chave API está inválida, impedindo o retorno dos dados.
+                        Por favor, poderiam corrigir a chave atual ou fornecer uma nova?”
+
+                    </p>
+
+                    <br>
+
+                    <p>
+
+                        <strong>Importante:</strong>
+
+                        Enviar o link da chave API compartilhada com a Iconatus no início da integração.
+
+                    </p>
+
+                    <br>
+
+                    <p><strong>Preenchimento Usuário</strong></p>
+
+                    <br>
+
+                    <p>
+                        Realize o preenchimento através desse link do parceiro integrador:
+                    </p>
+
+                    <br>
+
+                    <p>
+
+                        <a class="btn-link" target="_blank" href="http://adm.iconatus.com.br:7070/account/login">
+
+                            http://adm.iconatus.com.br:7070/account/login
+
+                        </a>
+
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Na primeira etapa, insira o usuário e a senha fornecidos pela Iconatus no início da integração.
+                        Caso não os possua, acione o suporte 5A.
+                    </p>
+
+                    <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779106700/tela-login-iconatus_xauulg.png">
+
+                    <p>
+                        A próxima etapa consiste em preencher os dados de acesso ao CRM (usuário e senha).
+                        Utilize uma conta de administrador para garantir a correta liberação da Iconatus.
+                    </p>
+
+                    <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779106774/Captura_de_tela_2026-05-18_091842_iwwevy.png">
+
+                    <p>
+                        Ao finalizar o cadastro, a mensagem "Concluído com sucesso" será exibida.
+                        No entanto, ela confirma apenas o registro, sendo necessária a validação da Iconatus para garantir o ajuste das credenciais.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- NIDO -->
+
+        <div id="nido-content" class="crm-instruction-block" style="display:none;">
+
+            <div class="dropdown-container-inner">
+
+                <h2>Integração Banco de Dados - Nido</h2>
+
+                <div class="info-box">
+
+                    A credencial é a "chave de acesso" (como senhas ou tokens) que permite a conexão segura entre o CRM da imobiliária e o Marketplace.
+                    Ela garante que o integrador consiga coletar e transferir os dados de imóveis e contatos de forma autenticada.
+
+                </div>
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779108632/Integra%C3%A7%C3%A3o_Nido_-_QA_page-0001_ynsq70.jpg">
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779108633/Integra%C3%A7%C3%A3o_Nido_-_QA_page-0002_kbkrkr.jpg">
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779108633/Integra%C3%A7%C3%A3o_Nido_-_QA_page-0003_egbftn.jpg">
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779108633/Integra%C3%A7%C3%A3o_Nido_-_QA_page-0004_wz3x1s.jpg">
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779108634/Integra%C3%A7%C3%A3o_Nido_-_QA_page-0005_gyzssx.jpg">
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779108634/Integra%C3%A7%C3%A3o_Nido_-_QA_page-0006_lftzeu.jpg">
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779108635/Integra%C3%A7%C3%A3o_Nido_-_QA_page-0007_ssjx3t.jpg">
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779108637/Integra%C3%A7%C3%A3o_Nido_-_QA_page-0008_exlpt4.jpg">
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779108636/Integra%C3%A7%C3%A3o_Nido_-_QA_page-0009_z19gbf.jpg">
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779108636/Integra%C3%A7%C3%A3o_Nido_-_QA_page-0010_ssogta.jpg">
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779108637/Integra%C3%A7%C3%A3o_Nido_-_QA_page-0011_i9hrsx.jpg">
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779108638/Integra%C3%A7%C3%A3o_Nido_-_QA_page-0012_l224k2.jpg">
+
+                <img src="https://res.cloudinary.com/daz86tvgl/image/upload/v1779108638/Integra%C3%A7%C3%A3o_Nido_-_QA_page-0013_qj4kta.jpg">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="contact-footer">
+
+        <strong>Dúvidas? Acione o suporte QuintoAndar:</strong>
+
+        <br>
+
+        WhatsApp:
+
+        <a class="btn-link" href="https://wa.me/551140402223" target="_blank">
+
+            (11) 4040-2223
+
+        </a>
+
+        <br>
+
+        E-mail: suporte.marketplace@quintoandar.com.br
+
+    </div>
+
+</div>
+
+</div>
+
+<script>
+
+function showCrmInstructions() {
+
+    const select = document.getElementById('crmSelect');
+
+    const selectedValue = select.value;
+
+    const instructionArea = document.getElementById('instructionArea');
+
+    const blocks = document.querySelectorAll('.crm-instruction-block');
+
+    blocks.forEach(block => {
+
+        block.style.display = 'none';
+
+    });
+
+    if (selectedValue) {
+
+        instructionArea.style.display = 'block';
+
+        const activeBlock = document.getElementById(selectedValue);
+
+        if (activeBlock) {
+
+            activeBlock.style.display = 'block';
+
+            setTimeout(() => {
+
+                instructionArea.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+            }, 50);
+
+        }
+
+    } else {
+
+        instructionArea.style.display = 'none';
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
